@@ -1,0 +1,37 @@
+body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3%;
+    background-color:whitesmoke;
+}
+.large{
+    font-size:10vw;
+    color: red;
+}
+.back{
+    border: 0pc;
+    background-color: transparent;
+    color:blue;
+    transition-duration: 1s;
+    font-size: 1.5vw;
+}
+.back:hover{
+    border-bottom: solid 3px black;
+    background-color: whitesmoke;
+    font: optional;
+    /* color: red; */
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    /* opacity: 0.6; */
+    transition-duration: 1s;
+}
+div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 2vw;
+
+}

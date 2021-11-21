@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404:error</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='error.css') }}">
+</head>
+<body>
+    <h1 class="large">oops!!!</h1>
+    <h1>Page not found</h1>
+   <div class="slection">
+
+    <button class="back backs">click here to go back</button> ||
+    <button class="back home">click here to go home</button>
+
+   </div>
+</body>
+<script src="{{ url_for('static', filename='error.js')}}"></script>
+</html>
