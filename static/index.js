@@ -7,5 +7,5 @@ studentpage.addEventListener("click", function () {
 })
 
 leturerpage.addEventListener("click", function () {
-    window.open("/lecturerlogin", "_self")
+    window.open("/adminLevels", "_self")
 })

@@ -3,18 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="widh5=device-widh5, initial-scale=1.0">
+    
+    <title>result {{ studentDbS.student_name }}</title>
 </head>
 <body>
-    
-        {% if student.studentScore != null %}
-            {{student.student}}
-            {{studentDbS.email }}
-            <h2>{{student.studentScore}}</h2>
+    <button class="back">Back</button>
+        {% if student.Final_Score != null %}
+            <div class="scoreboard">
+                <center><h2>{{student.student_name}}</h2></center><br>
+                <center><h3>{{studentDbS.student_Id}}</h3></center><br>
+            </div>
+            <div class="courses">
+                
+                   
+                       <h5>CSE 201 || {{ courses.CSE201}}</h5>
 
+                   
+                    <h5>CSE 211 || {{ courses.CSE211}}</h5>
+                    
+
+                       <h5>CSE 221 || {{ courses.CSE221}}</h5>
+                   
+
+                       <h5>CSE 231|| {{ courses.CSE231}}</h5>
+                   
+                       <h5>CSE 241 ||{{ courses.CSE241}}</h5>
+                   
+
+                       <h5>CSE 251 || {{ courses.CSE251}}</h5>
+                   
+                
+            </div>
+
+             <h4>Final_Score: {{ courses.CSE201 + courses.CSE211 + courses.CSE221 + courses.CSE231 + courses.CSE241 + courses.CSE251 }}</h4>
         {% else %}
-            <h2>result not ready</h2>
+            <center><h2>result not ready</h2></center>
         {% endif%}
 </body>
+<script>
+    document.querySelector(".back").addEventListener("click", function(){
+        window.history.back();
+    })
+</script>
 </html>

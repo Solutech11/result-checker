@@ -64,7 +64,7 @@ myCursor.execute(
     """CREATE TABLE IF NOT EXISTS result(
         Id VARCHAR(255) NOT NULL references studentAdmin(student_Id),
         student_name VARCHAR(255) references studentAdmin(student_name),
-        courses
+        courses VARCHAR(255) NOT NULL,
         Final_Score INT NOT NULL,
         PRIMARY KEY(Id)
     )"""
