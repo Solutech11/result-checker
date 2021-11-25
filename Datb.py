@@ -28,8 +28,7 @@ myCursor.execute(
     """CREATE TABLE IF NOT EXISTS studentAdmin(
         student_name VARCHAR(300) NOT NULL,
         student_Id VARCHAR(300) NOT NULL,
-        email VARCHAR(255),
-        PRIMARY KEY(student_Id)
+        email VARCHAR(255)
     );"""
 )
 
@@ -38,8 +37,9 @@ myCursor.execute(
     """CREATE TABLE IF NOT EXISTS lecturerAdmin(
         Lecturer_name VARCHAR(300) NOT NULL,
         lecturer_Id VARCHAR(300) NOT NULL,
-        COURSE VARCHAR(255) NOT NULL,
+        course1 VARCHAR(255) NOT NULL,
         email VARCHAR(255),
+        course2 VARCHAR(255),
         PRIMARY KEY(lecturer_Id)
     );"""
 )
@@ -53,8 +53,7 @@ myCursor.execute(
         CSE221 INT,
         CSE231 INT,
         CSE241 INT,
-        CSE251 INT,
-        PRIMARY KEY(StudentName)
+        CSE251 INT
     );"""
 )
 

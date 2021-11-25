@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administhative</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='higheradmin.css') }}">
+</head>
+<body>
+
+    <button class="back">back</button>
+    <!-- <button type="submit">add</button> -->
+    
+    <div class="section">
+        <button class="staff">Lecturer</button>
+        <button class="student">Student</button>
+    </div>
+
+    <div class="student">
+        <h2>Student</h2>
+   
+        <div class="out" style="display: flex;flex-direction: row;">
+            <table>
+                <thead>
+                    <th>Student name</th>
+                    <th>Student id</th>
+                    <th>Email</th>
+                    
+                    <!-- <th>Total score</th> -->
+        
+                </thead>
+                
+        
+                {% for Stud in student %}
+                <tbody>
+                        <tr>
+                        <td>{{ Stud.student_name }}</td>
+                        <td>{{ Stud.student_Id }}</td>
+                        <td>{{ Stud.email }}</td>
+               
+                    
+                        </tr>
+                    </tbody>  
+                {% endfor %}
+               
+            
+        
+            </table>
+            <table>
+        
+                <thead>
+                    <th>CSE201</th>
+                    <th>CSE211</th>
+                    <th>CSE221</th>
+                    <th>CSE231</th>
+                    <th>CSE241</th>
+                    <th>CSE251</th>
+        
+                </thead>
+                
+                    {% for Stud in course%}
+            <tbody> 
+                <tr>
+                    <td>{{Stud.CSE201}}</td>
+                    <td>{{Stud.CSE211}}</td>
+                    <td>{{Stud.CSE221}}</td>
+                    <td>{{Stud.CSE231}}</td>
+                    <td>{{Stud.CSE241}}</td>
+                    <td>{{Stud.CSE251}}</td>
+                </tr>
+            </tbody>
+
+                
+                {% endfor%}
+            
+               
+
+            </table>
+
+            <table>
+                <thead>
+                    <th>delete</th>
+                    <th>edit</th>
+                </thead>
+
+                <tbody>
+
+                    {% for id in student%}
+                    <tr>
+                    <td><a href="/student/delete/{{id.student_name}}">delete</a></td>
+                    <td><a href="/student/Edit/{{id.student_name}}">edit</a></td>
+                 </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+
+        </div>
+
+
+    <center><h2>Add Student</h2></center>
+    <form action="{{ url_for('mainadminpage') }}" method="post">
+        <label for="nameohh">Student Name</label><br>
+        <input type="text" name="names" id="" required><br>
+
+        <label for="studentID">Student ID</label><br>
+        <input type="text" name="studentID" id="" required><br>
+
+        <label for="email">Email</label><br>
+        <input type="email" name="email" id="" required><br>
+
+        <input type="hidden" name="submit" value="add">
+        <input type="submit" value="Add Student">
+        <!-- <input type="number" name="totalscore" id=""> -->
+    </form>
+    </div>
+
+    <div class="lecturer">
+        <center><h2>Lecturer</h2></center>
+
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Lecturer ID</th>
+                <th>course1</th>
+                <th>course2</th>
+                <th>email</th>
+                <th>Delete</th>
+                <th>edit</th>
+            </thead>
+
+            <tbody>
+                {% for lect in lecturer %}
+                    <tr>
+                        <td>{{lect.Lecturer_name}}</td>
+                        <td>{{lect.lecturer_Id}}</td>
+                        <td>{{lect.course1}}</td>
+                        <td>{{ lect.course2}}</td>
+                        <td>{{lect.email}}</td>
+                        <td><a href="/lecturer/delete/{{lect.Lecturer_name}}">Delete</a></td>
+                        <td><a href="/lecturer/edit/{{lect.Lecturer_name}}">Edit</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+        <div class="addlecturer">
+            <form action="{{ url_for('mainadminpage')}}" method="post"><br>
+                <label for="Lectname">Name</label><br>
+                <input type="text" name="Lectname" id="" required><br>
+                <label for="LectId">Id Lecturer</label><br>
+                <input type="text" name="LectId" id="" required><br>
+
+                <label for="course1">Course</label><br>
+                <input type="text" name="course1" id="" required><br>
+                
+                <label for="test">course 2
+                </label><br>
+                <input type="text" name="course2" id=""><br>
+
+                <label for="email">email</label><br>
+                <input type="email" name="emailLect" id=""><br>
+
+                <input type="hidden" name="submit" value="add lecturer">
+                <input type="submit" value="add lecturer">
+            </form>
+        </div>
+
+    </div>
+</body>
+<script src="{{ url_for('static', filename='higheradmin.js') }}">
+    
+</script>
+</html>

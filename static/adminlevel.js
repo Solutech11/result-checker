@@ -1,5 +1,5 @@
 document.querySelector(".higherAdmin").addEventListener("click", function () {
-    window.open("/adminLevels/administrative", "_self")
+    window.open("/adminLevels/administrative/login", "_self")
 })
 
 document.querySelector(".lecturer").addEventListener("click", function () {

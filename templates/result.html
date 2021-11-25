@@ -9,7 +9,7 @@
 </head>
 <body>
     <button class="back">Back</button>
-        {% if student.Final_Score != null %}
+        {% if student.Final_Score != null and student.Final_Score!=0 %}
             <div class="scoreboard">
                 <center><h2>{{student.student_name}}</h2></center><br>
                 <center><h3>{{studentDbS.student_Id}}</h3></center><br>
@@ -36,7 +36,6 @@
                 
             </div>
 
-             <h4>Final_Score: {{ courses.CSE201 + courses.CSE211 + courses.CSE221 + courses.CSE231 + courses.CSE241 + courses.CSE251 }}</h4>
         {% else %}
             <center><h2>result not ready</h2></center>
         {% endif%}
