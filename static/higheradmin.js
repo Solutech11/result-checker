@@ -21,7 +21,7 @@ function brand () {
 // })
 
 document.querySelector(".back").addEventListener("click", function(){
-    window.history.back();
+    window.open("/adminLevels/administrative/login")
 })
 
 var studentBTn = document.querySelector(".student"),

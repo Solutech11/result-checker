@@ -89,7 +89,7 @@
                     {% for id in student%}
                     <tr>
                     <td><a href="/student/delete/{{id.student_name}}">delete</a></td>
-                    <td><a href="/student/Edit/{{id.student_name}}">edit</a></td>
+                    <td><a href="/student/Edit/{{_lnk}}/{{id.student_name}}">edit</a></td>
                  </tr>
                     {%endfor%}
                 </tbody>
@@ -138,17 +138,19 @@
                         <td>{{ lect.course2}}</td>
                         <td>{{lect.email}}</td>
                         <td><a href="/lecturer/delete/{{lect.Lecturer_name}}">Delete</a></td>
-                        <td><a href="/lecturer/edit/{{lect.Lecturer_name}}">Edit</a></td>
+                        <td><a href="/lecturer/Edit/{{_lnk}}/{{lect.Lecturer_name}}">Edit</a></td>
                     </tr>
                 {% endfor %}
             </tbody>
 
         </table>
 
-        <div class="addlecturer">
-            <form action="{{ url_for('mainadminpage')}}" method="post"><br>
+        <!-- <div class="addlecturer"> -->
+            <form action="{{ url_for('mainadminpage')}}" method="post">
+
                 <label for="Lectname">Name</label><br>
                 <input type="text" name="Lectname" id="" required><br>
+
                 <label for="LectId">Id Lecturer</label><br>
                 <input type="text" name="LectId" id="" required><br>
 
@@ -162,10 +164,12 @@
                 <label for="email">email</label><br>
                 <input type="email" name="emailLect" id=""><br>
 
-                <input type="hidden" name="submit" value="add lecturer">
+                <input type="hidden" name="submit" value="addLecturer">
+
                 <input type="submit" value="add lecturer">
+
             </form>
-        </div>
+        <!-- </div> -->
 
     </div>
 </body>

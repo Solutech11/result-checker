@@ -56,11 +56,9 @@ def login():
 def adminLevels():
     return render_template("adminlevel.html")
 
-# lecturer admin level      
-@app.route('/adminLevels/lecturer')
-def lecturerLevel():
-    return "wewewwewew"
-    
+
+
+            # the higher admin page
 @app.route('/adminLevels/administrative/login', methods =['GET', 'POST'])
 def AdministrativeLevelLogin():
     message=''
@@ -82,21 +80,21 @@ def AdministrativeLevelLogin():
 
 @app.route(f'/adminLevels/administrative/{randomStrings}', methods=['GET', 'POST'])
 def mainadminpage():
-    if request.method=='GET':
-        stringname = randomStrings
-        myCursor.execute('SELECT * FROM studentAdmin')
-        studentAdmin =myCursor.fetchall()
+    _lnk=randomStrings
+    stringname = randomStrings
+    myCursor.execute('SELECT * FROM studentAdmin')
+    studentAdmin =myCursor.fetchall()
 
-        myCursor.execute('SELECT * FROM course')
-        course = myCursor.fetchall()
+    myCursor.execute('SELECT * FROM course')
+    course = myCursor.fetchall()
 
-        myCursor.execute('SELECT * FROM lecturerAdmin')
-        _lecturerAdmin= myCursor.fetchall()
+    myCursor.execute('SELECT * FROM lecturerAdmin')
+    _lecturerAdmin= myCursor.fetchall()
     
-        return render_template('higherAdminMain.html' , student=studentAdmin, course= course, linkd=stringname, lecturer= _lecturerAdmin)
 
     if request.method=='POST':
         _type = request.form['submit'] 
+        # _frm2 = request.form['submits']
         if _type== "add":
             _name =request.form['names']
             _studentId = request.form['studentID']
@@ -114,16 +112,21 @@ def mainadminpage():
             myCursor.execute(f'INSERT INTO course (StudentName) VALUES("{_name}")')
             myDb.commit()
             return redirect(f'/adminLevels/administrative/{randomStrings}')
-
-        if _type == "add lecture":
+        elif _type == "addLecturer":
             _lectname = request.form['Lectname']
             _lectId = request.form['LectId']
             _course1 = request.form['course1']
             _course2 = request.form['course2']
             _lectemail = request.form['emailLect']
-            myCursor.execute(f'INSERT INTO lecturerAdmin(Lecturer_name, lecturer_Id, course1, email, course2) VALUES("{_lectname}","{lectId}", "{_course1}", "{_lectemail}", "{_course2}") ')
+            
+            myCursor.execute( f'INSERT INTO lectureradmin (Lecturer_name, lecturer_Id, course1, email, course2) VALUES("{_lectname}","{_lectId}", "{_course1}", "{_lectemail}", "{_course2}" )' )
             myDb.commit()
-            return redirect(f'/adminLevels/administrative/{randomStrings}')
+            return redirect(f'/adminLevels/administrative/{randomStrings}/{_lectId}')
+        else:
+            return "you are a yahoo"
+    
+    return render_template('higherAdminMain.html' , student=studentAdmin, course= course, linkd=stringname, lecturer= _lecturerAdmin, _lnk=_lnk)
+        
             
 @app.route('/lecturer/delete/<name>')
 def deletelecturer(name):
@@ -147,40 +150,56 @@ def delete(name):
     return redirect(f'/adminLevels/administrative/{randomStrings}')
 
 
-@app.route('/student/Edit/<name>')
+@app.route(f'/student/Edit/{randomStrings}/<name>', methods=['GET','POST'])
 def editing(name):
-    return f"i will edit it later mr/mrs {name}"
-# @app.route('/adminLevels/administrative/add', methods=['GET', 'POST'])
-# def addStudent():
-#     if request.method == 'POST':
-#         _submtype= request.form['submit']
-#         _username= request.form['Username']
-#         _password = request.form['Password']
-#         if _username==username and _password==password and _submtype=="submit":
+    _lnk=randomStrings
+    if request.method=='POST':
+        _name= request.form['name']
+        _idStud= request.form['idStud']
+        _email = request.form['email']
+        myCursor.execute(f'UPDATE students SET name="{_name}" WHERE name="{name}"')
+        myDb.commit()
+        myCursor.execute(f'UPDATE studentAdmin SET student_name="{_name}", student_Id= "{_idStud}", email="{_email}" WHERE student_name="{name}"')
 
-#             if request.method == 'POST' and _submtype=="add":
-#                 _studName = request.form['names']
-#                 _studId =request.form['studentID']
-#                 _email = request.form['email']
+        myDb.commit()
+        myCursor.execute(f'UPDATE course SET StudentName="{name}" WHERE StudentName="{name}" ')
+        myDb.commit()
+        return redirect(f'/adminLevels/administrative/{_lnk}')
 
-#                 myCursor.execute(f'INSERT INTO course (StudentName) VALUES({_studName})')
-#                 myDb.commit()
+    return render_template('editstudent.html', name=name, _lnk=_lnk)
 
-#                 myCursor.execute(f'INSERT INTO result (Id, Student_name) VALUES({_studId},{_studName})')
-#                 myDb.commit()
+@app.route(f'/lecturer/Edit/{randomStrings}/<name>', methods=['GET', 'POST'])
+def lecturerEdit(name):
+    rands= randomStrings
+    if request.method=='POST':
+        _name = request.form['lectName']
+        _id = request.form['lectId']
+        _course1 = request.form['course1']
+        _course2 = request.form['course2']
+        _email = request.form['lectemail']
 
-#                 myCursor.execute(f'INSERT INTO studentAdmin (student_name, student_Id, email) VALUES({_studName}, {_studId},{_email})')
-#                 myDb.commit()
+        myCursor.execute(f'UPDATE lecturerAdmin SET Lecturer_name="{_name}", lecturer_Id="{_id}", course1="{_course1}", course1="{_course2}", email="{_email}" WHERE Lecturer_name="{name}"')
+        myDb.commit()
 
-#                 myCursor.execute(f'INSERT INTO students(name) VALUES ({name})')
-#                 myDb.commit()
-#                 return redirect('')
+        return redirect(f'/adminLevels/administrative/{randomStrings}')
 
-                
-            
-#             return render_template('Adminaddstudent.html')
-#     if request.method=='GET':
-#         return render_template('higherAdmin login addStudent.html')
+    myCursor.execute(f'SELECT * FROM lecturerAdmin')
+    cltDB= myCursor.fetchone()
+    return render_template('editlecturer.html',lecturer=cltDB, rands=rands)
+
+
+
+
+
+    # Lecturer Admin page
+
+# lecturer admin level      
+@app.route('/adminLevels/lecturer')
+def lecturerLevel():
+    return "wewewwewew"
+
+    
+
 
 @app.errorhandler(404)
 def not_found(e):
