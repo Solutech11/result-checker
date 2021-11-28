@@ -3,12 +3,22 @@ from Datb import myDb, myCursor
 import string
 import random
 
+# higher Admin link
 c=0
-size=80
-
-randomlink = ''.join(random.choices(string.ascii_letters+string.digits, k= size))
-    
+size=200
+randomlink = ''.join(random.choices(string.ascii_letters+string.digits, k= size))  
 randomStrings= str(randomlink)
+
+
+# lecturer link
+lectsize=234
+lectlink = ''.join(random.choices(string.ascii_letters+string.digits, k= lectsize))
+lectStr = lectlink
+
+# student random link
+Studsize=234
+Studlink = ''.join(random.choices(string.ascii_letters+string.digits, k= lectsize))
+StudStr = Studlink
 
 # print(randomStrings)
 
@@ -22,7 +32,7 @@ def indexPage():
     return render_template('index.html')
 
 # student result output
-@app.route('/result/<studentname>')
+@app.route(f'/result/{StudStr}/<studentname>')
 def result (studentname):
     myCursor.execute(f'SELECT * FROM result WHERE student_name = "{studentname}"')
     student = myCursor.fetchone()
@@ -45,10 +55,10 @@ def login():
         myCursor.execute(f'SELECT * FROM studentAdmin WHERE student_name="{_name}" AND student_Id= "{_StudentId}" ')
         verify = myCursor.fetchone()
         if verify:
-            return redirect(f'result/{_name}')
+            return redirect(f'result/{StudStr}/{_name}')
         else:
             msg = "Incorrect details"
-    return render_template('student.html', mes=msg)
+    return render_template('student.html', mes=msg, studlnk=StudStr)
 
 
 # admin level page
@@ -121,7 +131,7 @@ def mainadminpage():
             
             myCursor.execute( f'INSERT INTO lectureradmin (Lecturer_name, lecturer_Id, course1, email, course2) VALUES("{_lectname}","{_lectId}", "{_course1}", "{_lectemail}", "{_course2}" )' )
             myDb.commit()
-            return redirect(f'/adminLevels/administrative/{randomStrings}/{_lectId}')
+            return redirect(f'/adminLevels/administrative/{randomStrings}')
         else:
             return "you are a yahoo"
     
@@ -183,7 +193,7 @@ def lecturerEdit(name):
 
         return redirect(f'/adminLevels/administrative/{randomStrings}')
 
-    myCursor.execute(f'SELECT * FROM lecturerAdmin')
+    myCursor.execute(f'SELECT * FROM lecturerAdmin WHERE Lecturer_name="{name}"')
     cltDB= myCursor.fetchone()
     return render_template('editlecturer.html',lecturer=cltDB, rands=rands)
 
@@ -194,12 +204,100 @@ def lecturerEdit(name):
     # Lecturer Admin page
 
 # lecturer admin level      
-@app.route('/adminLevels/lecturer')
+@app.route('/adminLevels/lecturerLogin', methods=["GET", "POST"])
 def lecturerLevel():
-    return "wewewwewew"
+    LectPassword="moslado by teni"
+    MSG=''
+    if request.method=="POST":
+        _name = request.form['LectName']
+        _lectID = request.form['lectID']
+        _password = request.form['pass']
 
+        myCursor.execute(f'SELECT * FROM lecturerAdmin WHERE Lecturer_name="{_name}" AND lecturer_Id ="{_lectID}"')
+        verf= myCursor.fetchone()
+        if verf and _password==LectPassword:
+            return redirect(f'/AdminLevel/Lecturer/{lectStr}/{_name}')
+        else:
+            MSG='Incorrect details'
+        
+    return render_template('lecturerAdminLogin.html', msg=MSG)
     
+@app.route(f'/AdminLevel/Lecturer/{lectStr}/<name>')
+def lecturer_level(name):
+    myCursor.execute(f'SELECT * FROM lecturerAdmin WHERE Lecturer_name="{name}"')
+    lect = myCursor.fetchone()
 
+    myCursor.execute('SELECT * FROM course ')
+    STUDENTouT= myCursor.fetchall()
+    return render_template('lecturerAdmin.html', lect =lect, student= STUDENTouT,lnk=lectStr)
+
+@app.route(f'/AdminLevel/lecturer/{lectStr}/<lecturer>/<student>', methods=['GET', 'POST'])
+def student_addscore(lecturer, student):
+    msg=''
+    if request.method=='POST':
+        _course1=request.form['course1']
+        _crs= request.form['crs']
+
+        _course2 = request.form['course2']
+        csr2 =request.form['crs2']
+
+        if csr2 == 'CSE201':
+            myCursor.execute(f'UPDATE course SET CSE201={_course2} WHERE StudentName="{student}"')     
+            myDb.commit()   
+        elif csr2 =='CSE211':
+            myCursor.execute(f'UPDATE course SET CSE211={_course2} WHERE StudentName="{student}"') 
+            myDb.commit()       
+        elif csr2=='CSE221':
+            myCursor.execute(f'UPDATE course SET CSE221={_course2} WHERE StudentName="{student}"')      
+            myDb.commit()  
+        elif csr2== 'CSE231':
+            myCursor.execute(f'UPDATE course SET CSE231={_course2} WHERE StudentName="{student}"')    
+            myDb.commit()    
+        elif csr2 == 'CSE241':
+            myCursor.execute(f'UPDATE course SET CSE241={_course2} WHERE StudentName="{student}"')   
+            myDb.commit()     
+        elif csr2 == 'CSE251':
+            myCursor.execute(f'UPDATE course SET CSE251={_course2} WHERE StudentName="{student}"')        
+            myDb.commit()
+        
+        if _crs=='CSE201':
+            myCursor.execute(f'UPDATE course SET CSE201={_course1} WHERE StudentName="{student}"')
+            myDb.commit()
+            return redirect(f'/AdminLevel/Lecturer/{lectStr}/{lecturer}')
+            # myCursor.execute(f'INSERT INTO course(CSE201) VALUES( CSE201="{_course1}")')
+            # myCursor.execute(f'INSERT INTO course(CSE211) VALUE()')
+        elif _crs=='CSE211':
+            myCursor.execute(f'UPDATE course SET CSE211={_course1} WHERE StudentName="{student}"')  
+            myDb.commit()
+            return redirect(f'/AdminLevel/Lecturer/{lectStr}/{lecturer}')
+        elif _crs== 'CSE221':
+            myCursor.execute(f'UPDATE course SET CSE221={_course1} WHERE StudentName="{student}"')  
+            myDb.commit()
+            return redirect(f'/AdminLevel/Lecturer/{lectStr}/{lecturer}')
+        elif _crs== 'CSE231':
+            myCursor.execute(f'UPDATE course SET CSE231={_course1} WHERE StudentName="{student}"')        
+            myDb.commit()
+            return redirect(f'/AdminLevel/Lecturer/{lectStr}/{lecturer}')
+        elif _crs == 'CSE241':
+            myCursor.execute(f'UPDATE course SET CSE241={_course1} WHERE StudentName="{student}"')    
+            myDb.commit()
+            return redirect(f'/AdminLevel/Lecturer/{lectStr}/{lecturer}')    
+        elif _crs == 'CSE251':
+            myCursor.execute(f'UPDATE course SET CSE251={_course1} WHERE StudentName="{student}"')        
+            myDb.commit()
+            return redirect(f'/AdminLevel/Lecturer/{lectStr}/{lecturer}')
+        elif _crs== '':
+            msg='fill the form right'
+
+        
+
+        
+    myCursor.execute(f'SELECT * FROM lecturerAdmin WHERE Lecturer_name="{lecturer}"')
+    lectdet= myCursor.fetchone()
+
+    myCursor.execute(f'SELECT * FROM course WHERE StudentName= "{student}"')
+    studentdet= myCursor.fetchone()
+    return render_template('addscore.html',student=studentdet, lecturer= lectdet, link=lectStr, msg=msg)
 
 @app.errorhandler(404)
 def not_found(e):

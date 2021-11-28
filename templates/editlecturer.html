@@ -11,19 +11,38 @@
     
     <form action="/lecturer/Edit/{{rands}}/{{lecturer.Lecturer_name}}" method="post">
         <label for="lectName">Name</label><br>
-        <input type="text" name="lectName" id=""><br>
+        <input type="text" name="lectName" id="" required><br>
 
         <label for="lectId">Lecturer Id</label><br>
-        <input type="text" name="lectId" id=""><br>
+        <input type="text" name="lectId" id="" required><br>
 
         <label for="course1">1st course</label><br>
-        <input type="text" name="course1" id=""><br>
+        <select name="course1" id="" required>
+            <option value=""></option>
+            <option value="CSE201"> CSE 201 Programming Concepts (Advanced Programming)</option>
+            <option value="CSE211">CSE 211 Computer Programming using VB.NET</option>
+            <option value="CSE221">CSE 221 System Programming Concept (C, C++) (Embedded Systems) </option>
+            <option value="CSE231">CSE 231 Computer Application Packages II (Mobile Computing)</option>
+            <option value="CSE241">CSE 241 Structured Query Language I (Cyber Security) </option>
+            <option value="CSE251">CSE 251 Relational Database Management Systems (RDBMS) I</option>
+            <option value="ENT 201"> ENT 201 Entrepreneurship Development</option>
+        </select><br>
+
 
         <label for="course2">2nd course</label><br>
-        <input type="text" name="course2" id=""><br>
-
+        <select name="course2" id="" >
+            <option value=""></option>
+            <option value="CSE201"> CSE 201 Programming Concepts (Advanced Programming)</option>
+            <option value="CSE211">CSE 211 Computer Programming using VB.NET</option>
+            <option value="CSE221">CSE 221 System Programming Concept (C, C++) (Embedded Systems) </option>
+            <option value="CSE231">CSE 231 Computer Application Packages II (Mobile Computing)</option>
+            <option value="CSE241">CSE 241 Structured Query Language I (Cyber Security) </option>
+            <option value="CSE251">CSE 251 Relational Database Management Systems (RDBMS) I</option>
+            <!-- <option value="ENT 201"> ENT 201 Entrepreneurship Development</option> -->
+        </select>
+        <br>
         <label for="lectemail">Email</label><br>
-        <input type="text" name="lectemail" id=""><br><br>
+        <input type="text" name="lectemail" id="" ><br><br>
 
         <input type="submit" value="Edit {{lecturer.Lecturer_name}}">
 

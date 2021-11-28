@@ -9,7 +9,7 @@
 </head>
 <body>
     <button class="back">Back</button>
-        {% if student.Final_Score != null and student.Final_Score!=0 %}
+        {% if courses.CSE201|int != 0 and courses.CSE211|int != 0 and courses.CSE221|int != 0 and courses.CSE231|int != 0 and courses.CSE241|int != 0 and courses.CSE251|int != 0 %}
             <div class="scoreboard">
                 <center><h2>{{student.student_name}}</h2></center><br>
                 <center><h3>{{studentDbS.student_Id}}</h3></center><br>
@@ -32,7 +32,9 @@
                    
 
                        <h5>CSE 251 || {{ courses.CSE251}}</h5>
-                   
+
+                       <h4>Total ={{courses.CSE201|int +courses.CSE211|int +courses.CSE221|int +courses.CSE231|int +courses.CSE241|int +courses.CSE251|int }}</h4>
+                  
                 
             </div>
 

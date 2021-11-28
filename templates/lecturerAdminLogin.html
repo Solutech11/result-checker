@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturer Login</title>
+</head>
+<body>
+    <h2>Lecturer Login</h2>
+    <h3>{{msg}}</h3>
+    <form action="/adminLevels/lecturerLogin" method="post">
+        <label for="LectName">Lecturer Name</label><br>
+        <input type="text" name="LectName" id=""><br>
+
+        <label for="lectID">Lucturer Id</label><br>
+        <input type="text" name="lectID" id=""><br>
+
+        <label for="pass">General Password</label><br>
+        <input type="password" name="pass" id=""><br>
+
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
