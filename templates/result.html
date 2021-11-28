@@ -4,47 +4,87 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="widh5=device-widh5, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/icon.ico')}}" type="image/x-icon">
     <title>result {{ studentDbS.student_name }}</title>
 </head>
 <body>
-    <button class="back">Back</button>
+    <!-- <button class="back">Back</button> -->
+    <center><h1>Student Result</h1></center>
         {% if courses.CSE201|int != 0 and courses.CSE211|int != 0 and courses.CSE221|int != 0 and courses.CSE231|int != 0 and courses.CSE241|int != 0 and courses.CSE251|int != 0 %}
             <div class="scoreboard">
-                <center><h2>{{student.student_name}}</h2></center><br>
-                <center><h3>{{studentDbS.student_Id}}</h3></center><br>
+                <h2>{{student.student_name}}</h2><br>
+                <h3>{{studentDbS.student_Id}}</h3><br>
             </div>
+            <hr>
             <div class="courses">
-                
-                   
-                       <h5>CSE 201 || {{ courses.CSE201}}</h5>
+                    <table>
+                        <thead>
+                            <th class="course code">Course Code</th>
+                            <th class="name">Course Name</th>
+                            <th class="score">Score</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>CSE201</td>
+                                <td> Programming Concepts (Advanced Programming)</td>
+                                <td>{{ courses.CSE201}}</td>
+                            </tr>
 
-                   
-                    <h5>CSE 211 || {{ courses.CSE211}}</h5>
-                    
+                            <tr>
+                                <td>CSE211</td>
+                                <td> Computer Programming using VB.NET</td>
+                                <td>{{ courses.CSE211}}</td>
+                            </tr>
 
-                       <h5>CSE 221 || {{ courses.CSE221}}</h5>
-                   
+                            <tr>
+                                <td>CSE221</td>
+                                <td>System Programming Concept (C, C++) (Embedded Systems)</td>
+                                <td>{{ courses.CSE221}}</td>
+                            </tr>
+                            <tr>
+                                <td>CSE231</td>
+                                <td>Computer Application Packages II (Mobile Computing)</td>
+                                <td>{{ courses.CSE231 }}</td>
+                            </tr>
+                            <tr>
+                                <td>CSE241</td>
+                                <td>Structured Query Language I (Cyber Security) </td>
+                                <td>{{ courses.CSE241}}</td>
+                            </tr>
+                            <tr>
+                                <td>CSE251</td>
+                                <td> Relational Database Management Systems (RDBMS) I</td>
+                                <td>{{ courses.CSE251}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                                                          
 
-                       <h5>CSE 231|| {{ courses.CSE231}}</h5>
-                   
-                       <h5>CSE 241 ||{{ courses.CSE241}}</h5>
-                   
 
-                       <h5>CSE 251 || {{ courses.CSE251}}</h5>
-
-                       <h4>Total ={{courses.CSE201|int +courses.CSE211|int +courses.CSE221|int +courses.CSE231|int +courses.CSE241|int +courses.CSE251|int }}</h4>
                   
                 
             </div>
-
+            <hr>
+            <div class="down">
+                <h4>Total score : {{courses.CSE201|int +courses.CSE211|int +courses.CSE221|int +courses.CSE231|int +courses.CSE241|int +courses.CSE251|int }}%</h4> 
+                <h4>Percentage : {{(((courses.CSE201|int +courses.CSE211|int +courses.CSE221|int +courses.CSE231|int +courses.CSE241|int +courses.CSE251|int)/600)*100)|int }}%</h4>
+                <!-- <br> -->
+                <h4>Signed: School Management </h4>
+            </div>
+            <hr class="downd">
+            <center><h6><strong class="print">Click here</strong> to print </h4></center>
         {% else %}
             <center><h2>result not ready</h2></center>
         {% endif%}
+
 </body>
 <script>
-    document.querySelector(".back").addEventListener("click", function(){
-        window.history.back();
+    document.querySelector(".print").addEventListener('click', function(){
+        window.print()
     })
+    // document.querySelector(".back").addEventListener("click", function(){
+    //     window.history.back();
+    // })
 </script>
 </html>

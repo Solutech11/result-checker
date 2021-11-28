@@ -1,3 +1,74 @@
 body{
-    background-color: yellowgreen;
+    /* background-color: rgb(168, 2, 2);*/
+    padding: 0px;
+    margin: 0pc;
+    overflow: hidden;
+    filter: blur(0px);
+    height: 100%;
+    width: 100%;
+    
+    /* background-repeat: no-repeat; */
+    /* padding: 10%; */
+}
+
+.center{
+    background-color: rgba(245, 245, 220, 0.87);
+    position:absolute;
+    height: 60vh;
+    width: 60vw;
+    margin-left: 23vw;
+    margin-top: -80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+    border-radius: 40px;
+    /* padding-top:; */
+}
+.mnBody{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+h1{
+    font-size: 5vw;
+}
+button{
+    font-size: 25px;
+    /* border-radius: 3px; */
+    padding: 2%;
+    border-radius: 9px;
+    border: none;
+
+}
+
+.student{
+    background-color: rgba(255, 0, 0, 0.253);
+    /* margin: 0px; */
+    transition-duration: 1s;
+    border: none;
+}
+.student:hover{
+    background-color: rgba(255, 0, 0, 0.911);
+}
+
+.lecturer{
+    background-color: rgba(83, 83, 83, 0.253);
+    /* margin: 0px; */
+    transition-duration: 1s;
+    border: none;
+}
+.lecturer:hover{
+    background-color: rgba(182, 177, 177, 0.897);
+}
+
+.cont{
+    background-image: url('img/index.jpg');
+    filter: blur(3px);
+    -webkit-filter: blur(3px); 
+    height: 102vh;
+
+    margin-top: -2vh;
+    
 }

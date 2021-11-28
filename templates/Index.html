@@ -5,17 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/icon.ico')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 </head>
 <body >
-    <div class="header">
-        <h1>Result checker</h1>
+    <div class="cont">
+        
     </div>
-    <div class="mnBody">
-        <button class="student">Student</button>
-        <button class="lecturer">Lecturer/Admin</button>
-        <!-- <button class="admin">Admins only</button> -->
+    <div class="center">
+        <div class="header">
+            <h1> Student Result checker</h1>
+        </div>
+        <div class="mnBody">
+            <button class="student">Student</button>
+            <button class="lecturer">Admin</button>
+            <!-- <button class="admin">Admins only</button> -->
+        </div>
     </div>
+    
 </body>
 <script src="{{ url_for('static', filename='index.js') }}"></script>
 </html>

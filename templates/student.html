@@ -5,23 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>student login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='student.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/icon.ico')}}" type="image/x-icon">
+
 </head>
 <body>
-    <button class="back">Back</button>
+    <div class="bady">
 
-    <h3>{{mes}}</h3>
-    <form action="/studentlogin" method="post">
-        <label for="name">name</label><br>
-        <input type="text" name="name" id=""><br>
-
-        <label for="StudentID">Student id</label><br>
-        <input type="text" name="StudentID" placeholder="studentId"><br>
-        <input type="submit" value="submit">
-    </form>
+    </div>
+    <div class="form">
+        <button class="back">Back</button>
+        <div class="other">
+            <div class="upper">
+                <h2>Student Login</h2><br>
+                <h3>{{mes}}</h3><br>
+            </div>
+            <form action="/studentlogin" method="post">
+               <div class="mn">
+                    <div>
+                        <label for="name">Name: </label><br>
+                        <input type="text" name="name" class="inp" placeholder="name">
+                    </div>
+    
+                    <div>
+                        <label for="StudentID">Student id:</label><br>
+                        <input type="text" name="StudentID" class="inp" placeholder="studentId"><br>
+                    </div>
+               </div>
+                <input type="submit" value="submit" class="submit">
+            </form>
+        </div>
+    </div>
 </body>
-<script>
-    document.querySelector(".back").addEventListener("click", function(){
-        window.history.back();
-    })
-</script>
+<script src="{{ url_for('static', filename='student.js') }}"></script>
 </html>

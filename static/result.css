@@ -1,0 +1,59 @@
+body{
+    border-radius: 34px;
+    border: solid 3px black;
+}
+h1{
+    text-decoration: underline;
+}
+.scoreboard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    /* height: 40px; */
+}
+hr{
+    width: 90%;
+}
+
+.courses{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+table{
+    width: 80%;
+    border-collapse: collapse;
+}
+tr,td,th{
+    border: solid black 2px;
+    height: 5vh;
+}
+.course{
+    width: 20%;
+}
+.name{
+    width: 60%;
+}
+.score{
+    width: 20%;
+}
+.down{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.downd{
+    width: 70%;
+}
+strong{
+    color: blue;
+}
+strong:hover{
+    color: blueviolet;
+}
