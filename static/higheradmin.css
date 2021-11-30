@@ -2,5 +2,140 @@ thead{
     border-bottom: black 10px solid;
 }
 body{
-    background-color: aqua;
+    margin: 0pc;
+    padding: 0pc;
+    width: 100%;
+    /* overflow-x: hidden; */
+    overflow-x: hidden;
+    /* background-color: aqua; */
+}
+
+
+.header{
+    width: 100%;
+    /* height: 44%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(43, 39, 39);
+    padding: 5px;
+}
+.upper{
+    display: flex;
+    flex-direction: row ;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: right;
+}
+.upperin{
+    display: flex;
+    width: 58%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+.upperin>h1{
+    color: blanchedalmond;
+    font-size: 3vw;
+}
+.upperin>button{
+    font-size: 1.2vw;
+    font-weight: bolder;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    background-color: transparent;
+    padding: 1%;
+    transition-duration: 1s;
+    color: blanchedalmond;
+}
+.upperin>button:hover{
+    background-color: rgba(63, 61, 63, 0.623);
+}
+
+
+.section>button{
+    width:45%;
+    font-size: 1.3vw;
+    color: blanchedalmond;
+    background-color: transparent;
+    border-radius: 10px;
+    transition-duration: 1s;
+}
+.studentbtn{
+    border: none;
+
+    border-bottom: solid 4px blanchedalmond;
+}
+.staffbtn{
+    border: none;
+
+    /* border-bottom: solid 4px blanchedalmond; */
+}
+.section>button:hover{
+    transition-duration: 0s;
+    border: white solid 2px;
+}
+
+.studentsect{
+    padding: 10px;
+}
+.lecturersect{
+    padding: 10px;
+
+    display: none;
+}
+/* .hederstd{
+    text-decoration: underline;
+} */
+.out{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+th,tr,td,thead,table{
+    border-collapse: collapse;
+
+    border: solid 1px black;
+}
+table{
+    width: 80%;
+    text-align: center;
+}
+.stdName{
+    width: 40%;
+}
+.studentId{
+    width: 40%;
+}
+.dl{
+    width: 20%;
+}
+.last{
+    width: 30%;
+}
+/* .emal{
+    /* width:% */
+.stdForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stdForm>input{
+    height: 5%;
+    margin-bottom: 3%;
+    width: 30%;;
+    border-radius: 10px;
 }

@@ -5,27 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administhative</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/admin2.ico')}}" type="image/x-icon">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='higheradmin.css') }}">
 </head>
 <body>
 
-    <button class="back">back</button>
+    <div class="header">
+        <div class="upper">
+            <div class="upperin">
+                <h1>LRC Admin</h1>
+                <button class="back">Logout</button>
+            </div>
+
+        </div>
+
+        <div class="section">
+            <button class="staffbtn">Lecturer</button>
+            <button class="studentbtn">Student</button>
+        </div>
+    
+
+    </div>
+    <!-- <button class="back">Logout</button> -->
     <!-- <button type="submit">add</button> -->
     
-    <div class="section">
-        <button class="staff">Lecturer</button>
-        <button class="student">Student</button>
-    </div>
+    
+    <div class="studentsect">
+        <center>
+        <h2 class="hederstd">Student Section</h2>
+        </center>
+<hr width=90%>
+        
+    <center><h2 style="text-decoration: underline;">Add Student</h2></center>
+    <form action="{{ url_for('mainadminpage') }}" method="post" class="stdForm">
+        <label for="nameohh">Student Name</label><br>
+        <input type="text" name="names" id="" required><br>
 
-    <div class="student">
-        <h2>Student</h2>
-   
+        <label for="studentID">Student ID</label><br>
+        <input type="text" name="studentID" id="" required><br>
+
+        <label for="email">Email</label><br>
+        <input type="email" name="email" id="" ><br>
+
+        <input type="hidden" name="submit" value="add">
+        <input type="submit" value="Add Student">
+        <!-- <input type="number" name="totalscore" id=""> -->
+    </form>
+<hr>
         <div class="out" style="display: flex;flex-direction: row;">
             <table>
                 <thead>
-                    <th>Student name</th>
-                    <th>Student id</th>
-                    <th>Email</th>
+                    <th class="stdName">Student name</th>
+                    <th class="studentId">Student id</th>
+                    <th class="emal">Email</th>
                     
                     <!-- <th>Total score</th> -->
         
@@ -78,10 +111,10 @@
 
             </table>
 
-            <table>
+            <table class="last">
                 <thead>
-                    <th>delete</th>
-                    <th>edit</th>
+                    <th class="dl">delete</th>
+                    <th class="dl">edit</th>
                 </thead>
 
                 <tbody>
@@ -98,24 +131,9 @@
         </div>
 
 
-    <center><h2>Add Student</h2></center>
-    <form action="{{ url_for('mainadminpage') }}" method="post">
-        <label for="nameohh">Student Name</label><br>
-        <input type="text" name="names" id="" required><br>
-
-        <label for="studentID">Student ID</label><br>
-        <input type="text" name="studentID" id="" required><br>
-
-        <label for="email">Email</label><br>
-        <input type="email" name="email" id="" ><br>
-
-        <input type="hidden" name="submit" value="add">
-        <input type="submit" value="Add Student">
-        <!-- <input type="number" name="totalscore" id=""> -->
-    </form>
     </div>
 
-    <div class="lecturer">
+    <div class="lecturersect">
         <center><h2>Lecturer</h2></center>
 
         <table>

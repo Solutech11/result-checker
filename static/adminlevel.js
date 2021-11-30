@@ -6,5 +6,5 @@ document.querySelector(".lecturer").addEventListener("click", function () {
     window.open("/adminLevels/lecturerLogin", "_self")
 })
 document.querySelector(".back").addEventListener("click", function(){
-    window.history.back();
+    window.open('/','_self')
 })

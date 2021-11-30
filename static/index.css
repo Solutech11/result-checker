@@ -12,7 +12,7 @@ body{
 }
 
 .center{
-    background-color: rgba(245, 245, 220, 0.87);
+    background-color: rgba(245, 245, 220, 0.301);
     position:absolute;
     height: 60vh;
     width: 60vw;
@@ -54,13 +54,13 @@ button{
 }
 
 .lecturer{
-    background-color: rgba(83, 83, 83, 0.253);
+    background-color: rgba(83, 83, 83, 0.164);
     /* margin: 0px; */
     transition-duration: 1s;
     border: none;
 }
 .lecturer:hover{
-    background-color: rgba(182, 177, 177, 0.897);
+    background-color: rgb(173, 167, 167);
 }
 
 .cont{

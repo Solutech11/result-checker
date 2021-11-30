@@ -4,19 +4,19 @@ import string
 import random
 
 # higher Admin link
-c=0
-size=200
+# c=9999999999900000000
+size=2000
 randomlink = ''.join(random.choices(string.ascii_letters+string.digits, k= size))  
 randomStrings= str(randomlink)
 
 
 # lecturer link
-lectsize=234
+lectsize=2000
 lectlink = ''.join(random.choices(string.ascii_letters+string.digits, k= lectsize))
 lectStr = lectlink
 
 # student random link
-Studsize=234
+Studsize=2000
 Studlink = ''.join(random.choices(string.ascii_letters+string.digits, k= lectsize))
 StudStr = Studlink
 

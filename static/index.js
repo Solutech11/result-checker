@@ -1,4 +1,4 @@
-console.log("eweee")
+
 var studentpage = document.querySelector(".student"),
 leturerpage = document.querySelector(".lecturer");
 

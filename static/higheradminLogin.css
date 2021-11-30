@@ -1,20 +1,19 @@
 body{
-    padding: 0pc;
-    margin: 0pc;
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
 }
-.bady{
+.baddy{
     background-image: url('img/index.jpg');
     filter: blur(3px);
     -webkit-filter: blur(3px); 
     height: 102vh;
-
     margin-top: -2vh;
+
 }
 
-.form{
+.center{
     background-color: rgba(245, 245, 220, 0.301);
     position:absolute;
     height: 60vh;
@@ -30,7 +29,7 @@ body{
 }
 button{
     font-weight: bolder;
-    background-color: rgba(255, 0, 0, 0.253);
+    background-color: rgba(83, 83, 83, 0.164);
     width: 15%;
     transition-duration: 1s;
     /* border-radius: 20px; */
@@ -42,74 +41,101 @@ button{
 
 }
 button:hover{
-    background-color: rgba(255, 0, 0, 0.911);
+    background-color: rgb(173, 167, 167);
 }
-h3{
-    color: rgb(255, 1, 1);
+form{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
-
-.other{
-    /* background-color: aqua; */
-    /* margin-left: 25%; */
+.forms{
+    /* background-color: blueviolet; */
     width: 100%;
     height: 80%;
     display: flex;
     flex-direction: column;
     align-content: center;
-    justify-content: center;
-}
-h2{
-    margin-left: 35%;
-    font-size: 3vw;
-    margin-top: 0px;
-    margin-bottom: 0pc;
-}
-h3{
-    font-size: 1.5vw;
-    margin-left: 43%;
-    margin-top: 0px;
-
+    /* justify-content: center; */
 }
 
-.mn{
+.formss{
+    /* background-color: aqua; */
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    font-size: 1.3vw;
+    align-items: center;
+    justify-content: center;
 }
-form{
+
+.inputers{
+    /* background-color: violet; */
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.upfo>label{
+    font-size: 1.3vw;
+    width: 100%;
+    display: flex;
+    font-weight: bolder;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+}
+.down>label{
+    font-weight: bolder;
+    font-size: 1.3vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items:center;
-    justify-content:space-evenly;
 }
+
 .inp{
+    /* width: ; */
+    /* background-color: rgba(240, 255, 255, 0);
+     */
     border: none;
     border-bottom: solid 3px black;
     border-radius: 10px;
-    background-color: transparent;
     font-size: 1.3vw;
-}
+    background-color: transparent;
+    /* color: transparent; */
 
+}
 .submit{
-    background-color: rgba(255, 0, 0, 0.253);
+    background-color: rgba(83, 83, 83, 0.164);
     font-weight: bolder;
     /* color: white; */
     font-size: 15px;
     /* border-radius: 3px; */
+    margin-top: 1vh;
     padding: 2%;
     border-radius: 30px;
     transition-duration: 1s;
     border: none;
-
+    width: 15%;
 }
 .submit:hover{
-    background-color: rgba(255, 0, 0, 0.911);
+    background-color: rgb(173, 167, 167);
 
 }
-/* @media screen and(min-width: 480px){
-    h2{
-        font-size: 15px;
-    }
+.message{
+    color: rgb(209, 8, 8) ;
+}
+/* input{
+    background-color: transparent;
+} */
+/* .upfo{
+    background-color: yellowgreen;
+    width: 100%;
+}
+.down{
+    color: yellow;
+    width: 50%;
 } */

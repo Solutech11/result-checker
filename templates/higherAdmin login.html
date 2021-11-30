@@ -5,19 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrative login</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/admin2.ico')}}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='higheradminLogin.css')}}">
 </head>
 <body>
-    <h4 class="message">{{message}}</h4>
+    <div class="baddy"></div>
 
-     <form action="/adminLevels/administrative/login" method="post">
-         <label for="Username">Username</label>
-         <input type="text" name="Username" id="">
+    <div class="center">
+        <button class="back">back</button>
+        <div class="forms">
+            <center><h2>Higher Admin login</h2></center>
 
-         <label for="Password">Password</label>
-         <input type="password" name="Password" id="">
+            <center>
+        <h3 class="message">{{message}}</h4>
 
-         <input type="hidden" name="submit" value="submit">
-         <input type="submit">
-     </form>   
+            </center>
+    <div class="formss">
+         <form action="/adminLevels/administrative/login" method="post">
+            <div class="inputers">
+                <div class="upfo"> <label for="Username">Username</label><br>
+                    <input type="text" name="Username" class="inp">
+                </div>
+        
+                <div class="down">
+                    <label for="Password">Password</label><br>
+                    <input type="password" name="Password" class="inp">
+                </div>
+            </div>
+             <input type="hidden" name="submit" value="submit">
+             <input type="submit" value="Login" class="submit">
+         </form> 
+        </div>
+        </div>
+    </div>
 </body>
+<script src="{{ url_for('static', filename='highreradminlogin.js')}}"></script>
 </html>
