@@ -5,21 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{name}} edit</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/admin2.ico')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='studentedit.css')}}">
 </head>
 <body>
-    <u><center><h2>Student Edit</h2></center></u>
+    <div class="cntr"></div>
+    <div class="mid">
+        <button class="back">back</button>
+    <div class="insider">
+        <u><center><h2>Student Edit</h2></center></u>
 
-    <form action="/student/Edit/{{_lnk}}/{{name}}" method="post">
-        <label for="name">name</label><br>
-        <input type="text" name="name" id=""><br>
+    <form action="/student/Edit/{{_lnk}}/{{name}}" method="post" >
+       <div class="upperf">
+        <div class="first">
+            <label for="name">name</label><br>
+            <input type="text" name="name" id="" required>
+        </div>
+        <br>
 
-        <label for="idStud">Student Id</label><br>
-        <input type="text" name="idStud" id=""><br>
+        <div class="second">
+            <label for="idStud">Student Id</label><br>
+            <input type="text" name="idStud" id="" required><br>
+        </div>
 
-        <label for="email">Email</label><br>
-        <input type="email" name="email" id=""><br>
+        <div class="third">
+            <label for="email">Email</label><br>
+            <input type="email" name="email" id="" required>
+        </div>
+       </div>
+        <br>
 
-        <input type="submit" value="Edit {{name}}">
+        <input type="submit" value="Edit {{name}}" class="submit">
     </form>
+    </div>   
+        
+    </div>
 </body>
+<script src="{{ url_for('static', filename='studentedit.js')}}"></script>
 </html>

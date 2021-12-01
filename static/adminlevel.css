@@ -34,7 +34,7 @@ body{
     width: 15%;
     transition-duration: 1s;
     height: 14%;
-    border-top-left-radius: 40px;
+    border-top-left-radius: 45px;
     border-bottom-right-radius: 60px;
     border: none;
     background-color: rgba(245, 245, 220, 0.301);

@@ -49,7 +49,7 @@
         <input type="email" name="email" id="" ><br>
 
         <input type="hidden" name="submit" value="add">
-        <input type="submit" value="Add Student">
+        <input type="submit" value="Add Student" class="substd">
         <!-- <input type="number" name="totalscore" id=""> -->
     </form>
 <hr>
@@ -134,37 +134,11 @@
     </div>
 
     <div class="lecturersect">
-        <center><h2>Lecturer</h2></center>
-
-        <table>
-            <thead>
-                <th>Name</th>
-                <th>Lecturer ID</th>
-                <th>course1</th>
-                <th>course2</th>
-                <th>email</th>
-                <th>Delete</th>
-                <th>edit</th>
-            </thead>
-
-            <tbody>
-                {% for lect in lecturer %}
-                    <tr>
-                        <td>{{lect.Lecturer_name}}</td>
-                        <td>{{lect.lecturer_Id}}</td>
-                        <td>{{lect.course1}}</td>
-                        <td>{{ lect.course2}}</td>
-                        <td>{{lect.email}}</td>
-                        <td><a href="/lecturer/delete/{{lect.Lecturer_name}}">Delete</a></td>
-                        <td><a href="/lecturer/Edit/{{_lnk}}/{{lect.Lecturer_name}}">Edit</a></td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-
-        </table>
-
+        <center><h2>Lecturer Section</h2></center>
+<hr width=90%>
+        <center><h2 class="hederstd" >Add Lecturer</h2></center>
         <!-- <div class="addlecturer"> -->
-            <form action="{{ url_for('mainadminpage')}}" method="post">
+            <form action="{{ url_for('mainadminpage')}}" method="post" class="stdForm">
 
                 <label for="Lectname">Name</label><br>
                 <input type="text" name="Lectname" id="" required><br>
@@ -200,11 +174,42 @@
 
                 <input type="hidden" name="submit" value="addLecturer">
 
-                <input type="submit" value="add lecturer">
+                <input type="submit" value="add lecturer" class="substd">
 
             </form>
         <!-- </div> -->
-
+        <hr>
+            <div class="out">
+                <table >
+                    <thead>
+                        <th>Name</th>
+                        <th>Lecturer ID</th>
+                        <th>course1</th>
+                        <th>course2</th>
+                        <th>email</th>
+                        <th>Delete</th>
+                        <th>edit</th>
+                    </thead>
+        
+                    <tbody>
+                        {% for lect in lecturer %}
+                            <tr>
+                                <td>{{lect.Lecturer_name}}</td>
+                                <td>{{lect.lecturer_Id}}</td>
+                                <td>{{lect.course1}}</td>
+                                <td>{{ lect.course2}}</td>
+                                <td>{{lect.email}}</td>
+                                <td><a href="/lecturer/delete/{{lect.Lecturer_name}}">Delete</a></td>
+                                <td><a href="/lecturer/Edit/{{_lnk}}/{{lect.Lecturer_name}}">Edit</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+        
+                </table>
+        
+        
+            </div>
+        
     </div>
 </body>
 <script src="{{ url_for('static', filename='higheradmin.js') }}">

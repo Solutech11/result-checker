@@ -1,0 +1,100 @@
+body{
+    height: 100%;
+    width: 100%;
+    
+}
+.cntr{
+    background-image: url('img/admin.jpg');
+    /* filter: blur(1px); */
+    /* -webkit-filter: blur(px);  */
+    height: 102vh;
+    background-size: 100%;
+    margin-top: -2vh;
+}
+.mid{
+    /* padding: 1%; */
+    background-color: rgba(180, 178, 178, 0.384);
+    position:absolute;
+    height: 60vh;
+    width: 60vw;
+    /* filter: blur(1px); */
+    margin-left: 23vw;
+    margin-top: -80vh;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;  */
+    /* justify-content:space-evenly; */
+    border-radius: 40px;
+}
+.insider{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.back{
+    font-weight: bolder;
+    background-color: rgba(83, 83, 83, 0.164);
+    width: 15%;
+    transition-duration: 1s;
+    /* border-radius: 20px; */
+    height: 14%;
+    border-top-left-radius: 45px;
+    border-bottom-right-radius: 60px;
+    margin-bottom: 0px;
+    border: none;
+
+}
+
+.back:hover{
+    background-color: rgb(173, 167, 167);
+}
+.upperf{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-weight: bolder;
+}
+input{
+    border: none;
+    border-bottom: solid 3px black;
+    border-radius: 10px;
+    font-size: 1.3vw;
+    background-color: transparent;
+}
+
+.submit{
+    background-color: rgba(83, 83, 83, 0.164);
+    font-weight: bolder;
+    /* color: white; */
+    font-size: 15px;
+    /* border-radius: 3px; */
+    margin-top: 1vh;
+    padding: 2%;
+    border-radius: 30px;
+    transition-duration: 1s;
+    border: none;
+    /* width: 15%; */
+}
+.submit:hover{
+    background-color: rgb(173, 167, 167);
+
+}
+select{
+    width: 60%;
+    border: none;
+    border-bottom: solid 3px black;
+    border-radius: 10px;
+    font-size: 1vw;
+    background-color: transparent;
+}
