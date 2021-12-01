@@ -5,7 +5,7 @@ body{
     margin: 0px;
 }
 .baddy{
-    background-image: url('img/index.jpg');
+    background-image: url('img/admin.jpg');
     filter: blur(3px);
     -webkit-filter: blur(3px); 
     height: 102vh;
@@ -14,7 +14,9 @@ body{
 }
 
 .center{
-    background-color: rgba(245, 245, 220, 0.301);
+    background-color: rgba(180, 178, 178, 0.384);
+
+    /* background-color: rgba(172, 172, 168, 0.301); */
     position:absolute;
     height: 60vh;
     width: 60vw;

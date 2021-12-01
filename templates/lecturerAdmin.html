@@ -5,23 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lecturer Admin</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/admin2.ico')}}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='higheradmin.css') }}">
 </head>
 <body>
+    <div class="header" >
+        <div class="upper">
+            <div class="upperin">
+                <h1>Lecturer Admin</h1>
+            
+            <button class="back">Logout</button>
+
+            </div>
+        </div>
+    </div>
     <center><h2>{{lect.Lecturer_name}} Admin</h2></center>
-    <table>
-        <thead>
-            <th>Student name</th>
-         
-            <th>Edit Score</th>
-        </thead>
-        <tbody>
-    {% for stud in student %}
-        <tr>
-            <td>{{stud.StudentName}}</td>
-            <td><a href="/AdminLevel/lecturer/{{lnk}}/{{lect.Lecturer_name}}/{{stud.StudentName}}">Add score</a></td>
-        </tr>
-    {% endfor %}
-        </tbody>
-    </table>
+    <div class='out'>
+        <table style="font-size: 1.3vw;">
+            <thead>
+                <th>Student name</th>
+             
+                <th>Edit Score</th>
+            </thead>
+            <tbody>
+        {% for stud in student %}
+            <tr>
+                <td>{{stud.StudentName}}</td>
+                <td><a href="/AdminLevel/lecturer/{{lnk}}/{{lect.Lecturer_name}}/{{stud.StudentName}}">Add score</a></td>
+            </tr>
+        {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
 </body>
+<script>
+document.querySelector(".back").addEventListener('click', function () {
+    window.history.back()    
+})
+</script>
 </html>

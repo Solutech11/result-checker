@@ -5,23 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add score {{student.StudentName}}</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/admin2.ico')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='studentedit.css')}}">
 </head>
 <body>
-    <h2>{{ student.StudentName }} score {{lecturer.Lecturer_name}} </h2>
+    <div class="cntr"></div>
+
+    <div class="mid">
+        <button class="back">back</button>
+        <div class="insider">
+            <h2>{{ student.StudentName }} scored by {{lecturer.Lecturer_name}} </h2>
     <h3>{{msg}}</h3>
     <form action="/AdminLevel/lecturer/{{link}}/{{lecturer.Lecturer_name}}/{{student.StudentName}}" method="post">
-        <label for="{{lecturer.course1}}">{{lecturer.course1}}</label><br>
-        <input type="text" name="course1" id=""><br>
+       <div>
+        <label for="{{lecturer.course1}}" style="font-weight: bolder;">{{lecturer.course1}}</label><br>
+        <input type="text" name="course1" id="" required style="width:29vw; height: 60%;">
+       </div><br>
         <input type="hidden" name="crs" value="{{lecturer.course1}}">
         {% if lecturer.course2 != "" and lecturer.course2 != null %}
+           <div>
             <label for="{{lecturer.course2}}">{{lecturer.course2}}</label><br>
-            <input type="text" name="course2" id=""><br>
-            <input type="hidden" name="crs2" value="{{lecturer.course2}}">
+            <input type="text" name="course2" id=""  style="width:29vw; height: 60%;"><br>
+            <input type="hidden" name="crs2" value="{{lecturer.course2}}" >
+           </div>
         {% else %}
             <input type="hidden" name="course2" value="">
             <input type="hidden" name="crs2" value="">
         {% endif %}
-        <input type="submit" value="add">
+        <input type="submit" value="add" class="submit">
     </form>
+        </div>
+    </div>
+    
 </body>
+<script>
+document.querySelector(".back").addEventListener('click', function () {
+    window.history.back()    
+})
+</script>
 </html>
