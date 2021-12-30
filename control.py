@@ -309,5 +309,5 @@ def p_error(e):
     return render_template("error.html"),500
 
 if __name__ =='__main__':
-    app.run(port="3000", debug=True)
+    app.run(port="3306", debug=True)
 print(randomStrings)

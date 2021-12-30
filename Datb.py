@@ -1,10 +1,10 @@
 import mysql.connector
 
 myDb = mysql.connector.connect(
-    host='localhost',
-    database ='resultchecker',
-    user ='root',
-    password =''
+    host='sql3.freemysqlhosting.net',
+    database ='sql3462198',
+    user ='sql3462198',
+    password ='vrpSzvA36D'
 )
 
 
